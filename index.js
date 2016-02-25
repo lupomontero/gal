@@ -5,11 +5,13 @@ const Hapi = require('hapi');
 const Inert = require('inert');
 const Images = require('./lib/images');
 const Routes = require('./lib/routes');
+const Pkg = require('./package.json');
 
 
 const server = new Hapi.Server({
   app: {
     port: process.env.PORT || 3000,
+    name: process.env.NAME || Pkg.name,
     admins: (function () {
 
       const admins = (process.env.ADMINS || '').split(',').map((admin) => {
