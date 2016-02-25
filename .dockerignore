@@ -1,0 +1,9 @@
+*.swp
+
+.DS_Store
+.dockerignore
+.git/
+.gitignore
+
+Dockerfile
+node_modules/
