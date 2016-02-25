@@ -1,4 +1,4 @@
-FROM node:5.7.0
+FROM node:5.7.0-slim
 ADD . /app
 WORKDIR /app
 ENV NODE_ENV=production
