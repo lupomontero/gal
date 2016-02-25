@@ -8,56 +8,82 @@ const Routes = require('./lib/routes');
 const Pkg = require('./package.json');
 
 
-const server = new Hapi.Server({
-  app: {
-    port: process.env.PORT || 3000,
-    name: process.env.NAME || Pkg.name,
-    admins: (function () {
+module.exports = (options, cb) => {
 
-      const admins = (process.env.ADMINS || '').split(',').map((admin) => {
+  options = {};
+  cb = cb || function () {};
 
-        return admin.trim();
-      });
+  const server = new Hapi.Server({
+    app: {
+      port: options.port || process.env.PORT || 3000,
+      name: options.name || process.env.NAME || Pkg.name,
+      admins: (function () {
 
-      if (!admins || !admins.length) {
-        throw new Error('No admins defined!');
-      }
+        if (options.admins) {
+          return options.admins;
+        }
 
-      if (admins.length === 1 && /\.json$/.test(admins[0])) {
-        return require(admins[0]);
-      }
+        const admins = (process.env.ADMINS || '').split(',').map((admin) => {
 
-      return admins;
-    }()),
-    jwt: (function () {
+          return admin.trim();
+        });
 
-      if (process.env.JWT) {
-        return require(process.env.JWT);
-      }
-      return {
-        client_email: process.env.JWT_EMAIL,
-        private_key: process.env.JWT_PRIVATE_KEY
-      }
-    }())
-  }
-});
+        if (!admins || !admins.length) {
+          throw new Error('No admins defined!');
+        }
 
-server.connection({ port: server.settings.app.port });
+        if (admins.length === 1 && /\.json$/.test(admins[0])) {
+          return require(admins[0]);
+        }
 
-server.register([Inert, Images], (err) => {
+        return admins;
+      }()),
+      jwt: (function () {
 
-  if (err) {
-    throw err;
-  }
+        if (options.jwt) {
+          return options.jwt;
+        }
 
-  server.route(Routes);
+        if (process.env.JWT) {
+          return require(process.env.JWT);
+        }
+        return {
+          client_email: process.env.JWT_EMAIL,
+          private_key: process.env.JWT_PRIVATE_KEY
+        }
+      }())
+    }
+  });
 
-  server.start((err) => {
+  server.connection({ port: server.settings.app.port });
+
+  server.register([Inert, Images], (err) => {
+
+    if (err) {
+      return cb(err);
+    }
+
+    server.route(Routes);
+
+    cb(null, server);
+  });
+};
+
+
+if (require.main === module) {
+  module.exports({}, (err, server) => {
 
     if (err) {
       throw err;
     }
 
-    console.log('Server running at:', server.info.uri);
+    server.start((err) => {
+
+      if (err) {
+        throw err;
+      }
+
+      console.log('Server running at:', server.info.uri);
+    });
   });
-});
+}

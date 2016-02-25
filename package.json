@@ -4,7 +4,7 @@
   "description": "Gallery based on Google Drive shared folder.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/mocha test",
     "start": "node index.js"
   },
   "author": "Lupo Montero",
@@ -17,5 +17,8 @@
     "hapi": "^13.0.0",
     "inert": "^3.2.0",
     "request": "^2.69.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
   }
 }
