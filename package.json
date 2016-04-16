@@ -10,13 +10,13 @@
   "author": "Lupo Montero",
   "license": "UNLICENSED",
   "dependencies": {
-    "async": "^1.5.2",
+    "async": "^2.0.0-rc.3",
     "event-stream": "^3.3.2",
     "google-auth-library": "^0.9.7",
-    "googleapis": "^2.1.7",
-    "hapi": "^13.0.0",
+    "googleapis": "^4.0.0",
+    "hapi": "^13.3.0",
     "inert": "^3.2.0",
-    "request": "^2.69.0"
+    "request": "^2.70.0"
   },
   "devDependencies": {
     "mocha": "^2.4.5"
