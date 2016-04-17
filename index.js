@@ -10,7 +10,7 @@ const Pkg = require('./package.json');
 
 module.exports = (options, cb) => {
 
-  options = {};
+  options = options || {};
   cb = cb || function () {};
 
   const server = new Hapi.Server({
