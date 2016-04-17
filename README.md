@@ -56,3 +56,8 @@ npm start
 
 1. On startup, the server 
 
+
+## TODO
+
+* Automatically ensure image resolution, resize, crop...
+
