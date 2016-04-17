@@ -7,6 +7,7 @@
 
 ## Options
 
+* `THEME`: Front-end theme. Default value is `default`.
 * `PORT`: Port the server will bind to. Default is `3000`.
 * `JWT`: Path to json file with jwt credentials.
 * `JWT_EMAIL`: If not using `JWT` you can specify JWT client email along with

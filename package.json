@@ -14,9 +14,11 @@
     "event-stream": "^3.3.2",
     "google-auth-library": "^0.9.7",
     "googleapis": "^4.0.0",
+    "handlebars": "^4.0.5",
     "hapi": "^13.3.0",
     "inert": "^3.2.0",
-    "request": "^2.70.0"
+    "request": "^2.70.0",
+    "vision": "^4.1.0"
   },
   "devDependencies": {
     "mocha": "^2.4.5"
