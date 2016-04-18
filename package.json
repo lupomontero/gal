@@ -1,0 +1,26 @@
+{
+  "name": "gal",
+  "version": "1.0.0",
+  "description": "Gallery based on Google Drive shared folder.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test",
+    "start": "node index.js"
+  },
+  "author": "Lupo Montero",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "async": "^2.0.0-rc.3",
+    "event-stream": "^3.3.2",
+    "google-auth-library": "^0.9.7",
+    "googleapis": "^4.0.0",
+    "handlebars": "^4.0.5",
+    "hapi": "^13.3.0",
+    "inert": "^3.2.0",
+    "request": "^2.70.0",
+    "vision": "^4.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  }
+}
