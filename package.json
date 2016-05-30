@@ -10,17 +10,17 @@
   "author": "Lupo Montero",
   "license": "UNLICENSED",
   "dependencies": {
-    "async": "^2.0.0-rc.3",
+    "async": "^2.0.0-rc.5",
     "event-stream": "^3.3.2",
-    "google-auth-library": "^0.9.7",
-    "googleapis": "^4.0.0",
+    "google-auth-library": "^0.9.8",
+    "googleapis": "^7.1.0",
     "handlebars": "^4.0.5",
-    "hapi": "^13.3.0",
-    "inert": "^3.2.0",
-    "request": "^2.70.0",
+    "hapi": "^13.4.1",
+    "inert": "^4.0.0",
+    "request": "^2.72.0",
     "vision": "^4.1.0"
   },
   "devDependencies": {
-    "mocha": "^2.4.5"
+    "mocha": "^2.5.3"
   }
 }
