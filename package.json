@@ -1,6 +1,6 @@
 {
   "name": "gal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gallery based on Google Drive shared folder.",
   "main": "index.js",
   "scripts": {
