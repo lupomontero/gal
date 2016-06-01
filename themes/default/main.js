@@ -10,6 +10,8 @@ jQuery(function ($) {
 
   $.getJSON('/_images', function (images, textStatus, xhr) {
 
+    console.log(images);
+
     $.each(images, function (i) {
 
       var className = (i === 0) ? 'active' : '';
