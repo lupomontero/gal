@@ -2,7 +2,6 @@
   "name": "gal",
   "version": "1.0.1",
   "description": "Gallery based on Google Drive shared folder.",
-  "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha test",
     "start": "node index.js"

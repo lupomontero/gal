@@ -6,7 +6,7 @@ const Hapi = require('hapi');
 const Inert = require('inert');
 const Vision = require('vision');
 const Handlebars = require('handlebars');
-const Images = require('./lib/images');
+const Drive = require('./lib/drive');
 const Routes = require('./lib/routes');
 const Pkg = require('./package.json');
 
@@ -29,6 +29,9 @@ internals.settings = function (options) {
       const admins = (process.env.ADMINS || '').split(',').map((admin) => {
 
         return admin.trim();
+      }).filter((admin) => {
+
+        return admin !== '';
       });
 
       if (!admins || !admins.length) {
@@ -77,7 +80,7 @@ module.exports = (options, cb) => {
 
   server.connection({ port: server.settings.app.port });
 
-  server.register([Inert, Vision, Images], (err) => {
+  server.register([Inert, Vision, Drive], (err) => {
 
     if (err) {
       return cb(err);

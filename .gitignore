@@ -1,4 +1,5 @@
 .DS_Store
 *.swp
+gal-test-*.json
+*.pem
 node_modules/
-test/

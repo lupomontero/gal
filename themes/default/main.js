@@ -8,11 +8,11 @@ jQuery(function ($) {
   var $carouselInner = $carousel.find('.carousel-inner');
   var $carouselControl = $carousel.find('.carousel-control');
 
-  $.getJSON('/_images', function (images, textStatus, xhr) {
+  $.getJSON('/_tree', function (tree, textStatus, xhr) {
 
-    console.log(images);
+    console.log(tree);
 
-    $.each(images, function (i) {
+    $.each(tree.images, function (i) {
 
       var className = (i === 0) ? 'active' : '';
 
@@ -22,8 +22,11 @@ jQuery(function ($) {
       ].join(''));
 
       $carouselInner.append([
-        '<div class="item ' + className + '" ',
+        '<div class="carousel-item ' + className + '" ',
         'style="background-image: url(/_images/' + this.id + ')">',
+        '<div class="carousel-caption">',
+        this.title,
+        '</div>',
         '</div>'
       ].join(''));
     });
@@ -34,4 +37,3 @@ jQuery(function ($) {
   });
 
 });
-

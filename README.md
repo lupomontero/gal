@@ -2,8 +2,20 @@
 
 ## Before you get started
 
-1. Create a project on Google Cloud...
-2. ...
+1. Create a project on Google Cloud
+2. Enable Google Drive API for project
+3. Create credentials
+  1. Where will you be calling the API from?
+     `Web Server (e.g.: node.js, Tomcat)`
+  2. What data will you be accessing?
+     `Application data`
+  3. Are you using Google App Engine or Google Compute Engine?
+     `No`
+  4. Create a service account
+    1. Service account name
+    2. Service account id
+    3. Key type: `json`
+  5. Download key
 
 ## Options
 
@@ -54,10 +66,9 @@ npm start
 
 ## How it works
 
-1. On startup, the server 
+1. On startup, the server...
 
 
 ## TODO
 
 * Automatically ensure image resolution, resize, crop...
-
